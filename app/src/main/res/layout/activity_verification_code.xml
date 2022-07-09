@@ -32,7 +32,7 @@
         android:layout_below="@id/verificationMessage"/>
 
     <Button
-        android:id="@+id/continueBtn"
+        android:id="@+id/verifyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -52,4 +52,18 @@
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verifyBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible" />
+
 </RelativeLayout>

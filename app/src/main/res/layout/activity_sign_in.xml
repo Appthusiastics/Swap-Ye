@@ -42,10 +42,11 @@
         android:hint="Password"
         android:padding="10dp"
         android:textColor="#2E5D6E"
-        android:textColorHint="#2E5D6E" />
+        android:textColorHint="#2E5D6E"
+        android:inputType="textPassword"/>/>
 
     <Button
-        android:id="@+id/continueBtn"
+        android:id="@+id/logIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -61,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgotPass"
-        android:layout_below="@id/continueBtn"
+        android:layout_below="@id/logIn"
         android:text="Forget password?"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true" />
