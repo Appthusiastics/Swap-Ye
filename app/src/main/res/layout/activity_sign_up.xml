@@ -20,16 +20,19 @@
         android:src="@drawable/logo" />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:hint="Email"
-        android:textColorHint="#2E5D6E"
-        android:textColor="#2E5D6E"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/logo"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:layout_below="@id/logo"/>
+        android:hint="Email"
+        android:padding="10dp"
+        android:textColor="#2E5D6E"
+        android:textColorHint="#2E5D6E" />
 
     <EditText
         android:id="@+id/password"
@@ -41,7 +44,8 @@
         android:hint="Password"
         android:padding="10dp"
         android:textColor="#2E5D6E"
-        android:textColorHint="#2E5D6E" />
+        android:textColorHint="#2E5D6E"
+        android:inputType="textPassword"/>
 
     <EditText
         android:id="@+id/rePassword"
@@ -53,18 +57,31 @@
         android:hint="Re-Password"
         android:padding="10dp"
         android:textColor="#2E5D6E"
-        android:textColorHint="#2E5D6E" />
+        android:textColorHint="#2E5D6E"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/continueBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/rePassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#f1d54e"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Continue"
         android:textColor="#2e5d6e"
-        android:layout_margin="10dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accountExist"
+        android:layout_below="@id/continueBtn"
+        android:text="Have already account?"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
