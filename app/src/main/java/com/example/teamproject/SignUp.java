@@ -100,11 +100,12 @@ public class SignUp extends AppCompatActivity {
                     }
 
                 }
-            })
+            });
         }
     }
 
     private void sendUserToNextActivity() {
-        Intent intent = new Intent(regi)
+        Intent intent = new Intent(this, VerificationCode.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
     }
 }
