@@ -2,29 +2,24 @@ package com.example.teamproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.app.ProgressDialog;
 
 public class SignUp extends AppCompatActivity {
 
     private static final String TAG = "SignUp";
 
-    ImageView logo;
     EditText email, password, rePassword;
     Button continueBtn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -41,7 +36,6 @@ public class SignUp extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +44,6 @@ public class SignUp extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
-        logo = findViewById(R.id.logo);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         rePassword = findViewById(R.id.rePassword);
@@ -62,12 +55,9 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PerforAuth();
-
             }
         });
-
     }
-
     private void PerforAuth() {
         String intEmail = email.getText().toString();
         String intPass = password.getText().toString();
@@ -90,13 +80,22 @@ public class SignUp extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        progressDialog.dismiss();
-                        sendUserToNextActivity();
-                        Toast.makeText(SignUp.this, "Registration is successful", Toast.LENGTH_SHORT).show();
+                        mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()){
+                                    progressDialog.dismiss();
+                                    sendUserToNextActivity();
+                                    Toast.makeText(SignUp.this, "Registration is successful. Please check your email address for verification ", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
                     }
                     else{
                         progressDialog.dismiss();
-                        Toast.makeText(SignUp.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -105,7 +104,8 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent intent = new Intent(this, VerificationCode.class);
+        Intent intent = new Intent(this, SignIn.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
