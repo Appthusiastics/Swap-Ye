@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Email_Verification</string>
+    <string name="swapye">SwapYe</string>
+    <string name="enter_your_email_address">Enter Your Email Address</string>
+    <string name="sign_in_to_continue">Sign in to Continue</string>
+    <string name="verify_email_address">Verify Email Address</string>
+</resources>
