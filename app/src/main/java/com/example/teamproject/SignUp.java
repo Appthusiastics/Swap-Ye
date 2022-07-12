@@ -16,6 +16,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import android.app.ProgressDialog;
 
+import org.bson.Document;
+
+import io.realm.Realm;
+import io.realm.mongodb.App;
+import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.User;
+import io.realm.mongodb.mongo.MongoClient;
+import io.realm.mongodb.mongo.MongoCollection;
+import io.realm.mongodb.mongo.MongoDatabase;
+
 public class SignUp extends AppCompatActivity {
 
     private static final String TAG = "SignUp";
@@ -49,7 +59,6 @@ public class SignUp extends AppCompatActivity {
         rePassword = findViewById(R.id.rePassword);
         continueBtn = findViewById(R.id.continueBtn);
         progressDialog = new ProgressDialog(this);
-
 
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override

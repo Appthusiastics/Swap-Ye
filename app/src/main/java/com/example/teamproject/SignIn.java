@@ -15,6 +15,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.bson.Document;
+
+import io.realm.Realm;
+import io.realm.mongodb.App;
+import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.User;
+import io.realm.mongodb.mongo.MongoClient;
+import io.realm.mongodb.mongo.MongoCollection;
+import io.realm.mongodb.mongo.MongoDatabase;
+
 public class SignIn extends AppCompatActivity {
 
     EditText email, password;
@@ -35,26 +45,24 @@ public class SignIn extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            if(mAuth.getCurrentUser().isEmailVerified()) {
+                        if (task.isSuccessful()) {
+                            if (mAuth.getCurrentUser().isEmailVerified()) {
                                 startActivity(new Intent(SignIn.this, Profile.class));
                             }
+
 
                             //whenever user clicks login button, this code will take user email address and write into mongoDB
 
 
                             else {
-                                    Toast.makeText(SignIn.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else {
+                        } else {
                             Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
-
                     }
                 });
             }
