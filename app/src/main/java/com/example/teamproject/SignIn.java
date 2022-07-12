@@ -43,6 +43,10 @@ public class SignIn extends AppCompatActivity {
                             if(mAuth.getCurrentUser().isEmailVerified()) {
                                 startActivity(new Intent(SignIn.this, Profile.class));
                             }
+
+                            //whenever user clicks login button, this code will take user email address and write into mongoDB
+
+
                             else {
                                     Toast.makeText(SignIn.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
                             }
