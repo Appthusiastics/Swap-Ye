@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ import org.bson.Document;
 import io.realm.Realm;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.Credentials;
 import io.realm.mongodb.User;
 import io.realm.mongodb.mongo.MongoClient;
 import io.realm.mongodb.mongo.MongoCollection;
@@ -48,16 +50,15 @@ public class SignIn extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
+
+
                             if (mAuth.getCurrentUser().isEmailVerified()) {
+
                                 startActivity(new Intent(SignIn.this, Profile.class));
-                            }
 
-
-                            //whenever user clicks login button, this code will take user email address and write into mongoDB
-
-
-                            else {
+                            }else {
                                 Toast.makeText(SignIn.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
                             }
                         } else {
@@ -68,4 +69,6 @@ public class SignIn extends AppCompatActivity {
             }
         });
     }
+
+
 }

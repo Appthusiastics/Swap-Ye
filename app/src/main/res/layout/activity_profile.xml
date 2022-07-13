@@ -7,4 +7,17 @@
     tools:context=".Profile"
     android:background="#f7df6d">
 
+    <Button
+        android:id="@+id/mongoInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="341dp"
+        android:backgroundTint="#f1d54e"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Save"
+        android:textColor="#2e5d6e"
+        android:textStyle="bold" />
+
 </RelativeLayout>
