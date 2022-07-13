@@ -7,16 +7,44 @@
     tools:context=".Profile"
     android:background="#f7df6d">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="100dp"
+        android:src="@drawable/profile" />
+
+    <EditText
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:hint="Nickname"
+        android:padding="10dp"
+        android:textColor="#2E5D6E"
+        android:textColorHint="#2E5D6E" />
+
+
+
     <Button
-        android:id="@+id/mongoInsert"
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="341dp"
+        android:layout_below="@id/nickname"
         android:backgroundTint="#f1d54e"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Save"
+        android:layout_margin="10dp"
         android:textColor="#2e5d6e"
         android:textStyle="bold" />
 

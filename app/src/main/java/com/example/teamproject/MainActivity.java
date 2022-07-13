@@ -23,7 +23,6 @@ import io.realm.mongodb.mongo.MongoDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +31,12 @@ public class MainActivity extends AppCompatActivity {
         //MongoDB
         Realm.init(this);
 
-
-
-
         Button btnSignIn = findViewById(R.id.signInBtn);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myInt = new Intent(getApplicationContext(), SignIn.class);
                 startActivity(myInt);
-
             }
         });
 

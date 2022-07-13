@@ -96,7 +96,7 @@ public class SignUp extends AppCompatActivity {
                                 if (task.isSuccessful()){
                                     progressDialog.dismiss();
                                     sendUserToNextActivity();
-                                    Toast.makeText(SignUp.this, "Registration is successful. Please check your email address for verification ", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUp.this, "Registration is successful. Please check your email address for verification ", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });

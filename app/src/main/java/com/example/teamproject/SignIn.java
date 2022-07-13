@@ -52,12 +52,8 @@ public class SignIn extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-
-
                             if (mAuth.getCurrentUser().isEmailVerified()) {
-
                                 startActivity(new Intent(SignIn.this, Profile.class));
-
                             }else {
                                 Toast.makeText(SignIn.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
                             }
