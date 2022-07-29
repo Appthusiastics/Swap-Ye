@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity {
 
         nickname = findViewById(R.id.nickname);
 
+        /*
         app = new App(new AppConfiguration.Builder(appId).build());
         app.loginAsync(Credentials.anonymous(), new App.Callback<User>() {
             @Override
@@ -54,6 +55,8 @@ public class Profile extends AppCompatActivity {
                 }
             }
         });
+
+         */
 
         save = findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
