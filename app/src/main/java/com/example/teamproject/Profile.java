@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
@@ -42,7 +43,6 @@ public class Profile extends AppCompatActivity {
 
         nickname = findViewById(R.id.nickname);
 
-        /*
         app = new App(new AppConfiguration.Builder(appId).build());
         app.loginAsync(Credentials.anonymous(), new App.Callback<User>() {
             @Override
@@ -56,18 +56,21 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-         */
+
 
         save = findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 user = app.currentUser();
                 mongoClient = user.getMongoClient("mongodb-atlas");
                 mongoDatabase = mongoClient.getDatabase("TeamDB");
-                mongoCollection = mongoDatabase.getCollection("UserEmail");
+                mongoCollection = mongoDatabase.getCollection("Profile");
 
-                Document document = new Document().append("userId", user.getId()).append("nickName", nickname.getText().toString());
+                //Intent intent = getIntent();
+                //String getObject = intent.getStringExtra("linkId");
+                Document document = new Document().append("userId", user.getId()).append("email", nickname.getText().toString());
 
                 mongoCollection.insertOne(document).getAsync(result -> {
                     if (result.isSuccess()) {

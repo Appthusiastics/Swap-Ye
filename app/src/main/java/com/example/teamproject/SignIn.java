@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
@@ -51,7 +52,6 @@ public class SignIn extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        String test = "tesData";
 
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,6 @@ public class SignIn extends AppCompatActivity {
                         App app;
                         String appId = "application-0-yvjts";
 
-
                         if (task1.isSuccessful()) {
 
                             if (mAuth.getCurrentUser().isEmailVerified()) {
@@ -79,20 +78,21 @@ public class SignIn extends AppCompatActivity {
                                 mongoDatabase = mongoClient.getDatabase("TeamDB");
                                 mongoCollection = mongoDatabase.getCollection("UserEmail");
 
-
                                 Document queryFilter  = new Document("email", email.getText().toString());
                                 mongoCollection.findOne(queryFilter).getAsync(task -> {
                                     if (task.isSuccess()){
-
                                         if (task.get() == null) {
+                                            Document document = new Document().append("userId", user.getId()).append("email", email.getText().toString());
+                                            mongoCollection.insertOne(document).getAsync(result -> {
+                                            });
+                                            Intent i = new Intent(SignIn.this, Profile.class);
+                                            i.putExtra("linkId", 23);
                                             startActivity(new Intent(SignIn.this, Profile.class));
                                         }
                                         else if (task.get() != null){
                                             startActivity(new Intent(SignIn.this, Welcome.class));
                                         }
-
                                     }else{
-
                                     }
                                 });
 
@@ -103,15 +103,8 @@ public class SignIn extends AppCompatActivity {
                             Toast.makeText(SignIn.this, task1.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
-
                 });
             }
-
         });
-
     }
-
-
-
-
 }
