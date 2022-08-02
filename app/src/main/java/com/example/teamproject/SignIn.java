@@ -78,15 +78,23 @@ public class SignIn extends AppCompatActivity {
                                 mongoDatabase = mongoClient.getDatabase("TeamDB");
                                 mongoCollection = mongoDatabase.getCollection("UserEmail");
 
+                                String passValue = email.getText().toString();
+
                                 Document queryFilter  = new Document("email", email.getText().toString());
                                 mongoCollection.findOne(queryFilter).getAsync(task -> {
                                     if (task.isSuccess()){
                                         if (task.get() == null) {
                                             Document document = new Document().append("userId", user.getId()).append("email", email.getText().toString());
                                             mongoCollection.insertOne(document).getAsync(result -> {
+
+                                                if (result.isSuccess()){
+
+                                                    Intent i = new Intent(SignIn.this, Profile.class);
+                                                    i.putExtra("link", passValue.toString());
+                                                    startActivity(i);
+                                                }
                                             });
-                                            Intent i = new Intent(SignIn.this, Profile.class);
-                                            i.putExtra("linkId", 23);
+
                                             startActivity(new Intent(SignIn.this, Profile.class));
                                         }
                                         else if (task.get() != null){

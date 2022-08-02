@@ -56,8 +56,6 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-
-
         save = findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,33 +66,26 @@ public class Profile extends AppCompatActivity {
                 mongoDatabase = mongoClient.getDatabase("TeamDB");
                 mongoCollection = mongoDatabase.getCollection("Profile");
 
-                //Intent intent = getIntent();
-                //String getObject = intent.getStringExtra("linkId");
-                Document document = new Document().append("userId", user.getId()).append("email", nickname.getText().toString());
+               Bundle extras = getIntent().getExtras();
+                if (extras != null) {
+                    String passValue = extras.getString("link");
 
-                mongoCollection.insertOne(document).getAsync(result -> {
-                    if (result.isSuccess()) {
-                        Toast.makeText(Profile.this, "Saved successfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(Profile.this, "Error " + result.getError(), Toast.LENGTH_LONG).show();
-                    }
+                    Document document = new Document().append("link", passValue).append("nickname", nickname.getText().toString());
 
-
-                });
-
+                    mongoCollection.insertOne(document).getAsync(result -> {
+                        if (result.isSuccess()) {
+                            Toast.makeText(Profile.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Profile.this, "Error " + result.getError(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
                 Intent myInt = new Intent(getApplicationContext(), Welcome.class);
                 startActivity(myInt);
             }
 
         });
-
-
-
-
     }
-
-
-
-    }
+}
 
 
