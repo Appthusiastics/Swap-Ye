@@ -68,9 +68,11 @@ public class Profile extends AppCompatActivity {
 
                Bundle extras = getIntent().getExtras();
                 if (extras != null) {
-                    String passValue = extras.getString("link");
+                    String passEmail = extras.getString("linkEmail");
 
-                    Document document = new Document().append("link", passValue).append("nickname", nickname.getText().toString());
+                    Document document = new Document().append("email", passEmail).append("nickname", nickname.getText().toString());
+
+                    String passNickname = nickname.getText().toString();
 
                     mongoCollection.insertOne(document).getAsync(result -> {
                         if (result.isSuccess()) {
@@ -78,10 +80,12 @@ public class Profile extends AppCompatActivity {
                         } else {
                             Toast.makeText(Profile.this, "Error " + result.getError(), Toast.LENGTH_LONG).show();
                         }
+                        Intent i = new Intent(Profile.this, Welcome.class);
+                        i.putExtra("linkEmail", passEmail.toString());
+                        startActivity(i);
                     });
                 }
-                Intent myInt = new Intent(getApplicationContext(), Welcome.class);
-                startActivity(myInt);
+
             }
 
         });

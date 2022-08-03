@@ -78,7 +78,7 @@ public class SignIn extends AppCompatActivity {
                                 mongoDatabase = mongoClient.getDatabase("TeamDB");
                                 mongoCollection = mongoDatabase.getCollection("UserEmail");
 
-                                String passValue = email.getText().toString();
+                                String passEmail = email.getText().toString();
 
                                 Document queryFilter  = new Document("email", email.getText().toString());
                                 mongoCollection.findOne(queryFilter).getAsync(task -> {
@@ -90,17 +90,17 @@ public class SignIn extends AppCompatActivity {
                                                 if (result.isSuccess()){
 
                                                     Intent i = new Intent(SignIn.this, Profile.class);
-                                                    i.putExtra("link", passValue.toString());
+                                                    i.putExtra("linkEmail", passEmail.toString());
                                                     startActivity(i);
                                                 }
                                             });
 
-                                            startActivity(new Intent(SignIn.this, Profile.class));
                                         }
-                                        else if (task.get() != null){
-                                            startActivity(new Intent(SignIn.this, Welcome.class));
+                                        else{
+                                            Intent i = new Intent(SignIn.this, Welcome.class);
+                                            i.putExtra("linkEmail", passEmail);
+                                            startActivity(i);
                                         }
-                                    }else{
                                     }
                                 });
 
