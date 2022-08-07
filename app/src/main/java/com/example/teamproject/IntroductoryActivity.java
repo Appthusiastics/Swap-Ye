@@ -30,6 +30,6 @@ public class IntroductoryActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
-        }, 3000);
+        }, 6000);
         }
     }

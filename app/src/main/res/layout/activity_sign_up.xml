@@ -63,15 +63,28 @@
         android:textColor="#2E5D6E"
         android:textColorHint="#2E5D6E" />
 
+    <CheckBox
+        android:id="@+id/check_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_marginTop="50dp"
+        android:text="Terms and conditions"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
+
     <Button
         android:id="@+id/continueBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rePassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/rePassword"
+        android:layout_alignStart="@+id/check_id"
+        android:layout_alignEnd="@+id/check_id"
+        android:layout_marginStart="-11dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="-12dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#f1d54e"
         android:fontFamily="sans-serif-condensed-medium"
@@ -84,7 +97,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/continueBtn"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="Already have an account?"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/black" />
 </RelativeLayout>
