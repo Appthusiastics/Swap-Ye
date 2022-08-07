@@ -25,8 +25,10 @@ import io.realm.mongodb.mongo.MongoDatabase;
 
 public class Profile extends AppCompatActivity {
 
+    UserInfo usr = new UserInfo();
     Button save;
     EditText nickname;
+
 
     //MongoDB
     MongoClient mongoClient;
@@ -68,21 +70,20 @@ public class Profile extends AppCompatActivity {
 
                Bundle extras = getIntent().getExtras();
                 if (extras != null) {
+
                     String passEmail = extras.getString("linkEmail");
-
                     Document document = new Document().append("email", passEmail).append("nickname", nickname.getText().toString());
-
-                    String passNickname = nickname.getText().toString();
 
                     mongoCollection.insertOne(document).getAsync(result -> {
                         if (result.isSuccess()) {
                             Toast.makeText(Profile.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(Profile.this, Welcome.class);
+                            i.putExtra("linkEmail", passEmail.toString());
+                            startActivity(i);
                         } else {
                             Toast.makeText(Profile.this, "Error " + result.getError(), Toast.LENGTH_LONG).show();
                         }
-                        Intent i = new Intent(Profile.this, Welcome.class);
-                        i.putExtra("linkEmail", passEmail.toString());
-                        startActivity(i);
+
                     });
                 }
 

@@ -16,6 +16,12 @@
         android:theme="@style/Theme.TeamProject"
         tools:targetApi="31">
         <activity
+            android:name=".CreateAd"
+            android:exported="false" />
+        <activity
+            android:name=".ListAds"
+            android:exported="false" />
+        <activity
             android:name=".Welcome"
             android:exported="false" />
         <activity

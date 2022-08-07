@@ -55,6 +55,7 @@ public class SignUp extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
 
         email = findViewById(R.id.email);
+
         password = findViewById(R.id.password);
         rePassword = findViewById(R.id.rePassword);
         continueBtn = findViewById(R.id.continueBtn);

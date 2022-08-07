@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -29,6 +32,8 @@ import io.realm.mongodb.mongo.MongoDatabase;
 
 public class SignIn extends AppCompatActivity {
 
+    UserInfo usr = new UserInfo();
+
     EditText email, password;
     Button logIn;
     FirebaseAuth mAuth;
@@ -37,14 +42,6 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
-        //MongoDB
-        MongoClient mongoClient;
-        MongoDatabase mongoDatabase;
-        MongoCollection<Document> mongoCollection;
-        User user;
-        App app;
-        String appId = "application-0-yvjts";
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -71,6 +68,8 @@ public class SignIn extends AppCompatActivity {
                         if (task1.isSuccessful()) {
 
                             if (mAuth.getCurrentUser().isEmailVerified()) {
+
+
 
                                 app = new App(new AppConfiguration.Builder(appId).build());
                                 user = app.currentUser();
