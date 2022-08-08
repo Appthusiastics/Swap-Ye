@@ -64,7 +64,7 @@
         android:id="@+id/forgotPass"
         android:layout_below="@id/logIn"
         android:text="Forget password?"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

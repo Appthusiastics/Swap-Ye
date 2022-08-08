@@ -12,9 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-<<<<<<< HEAD
 rootProject.name = "TeamProject"
-=======
-rootProject.name = "Email_Verification"
->>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 include ':app'

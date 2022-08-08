@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-<<<<<<< HEAD
     package="com.example.teamproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
-=======
-    package="com.example.email_verification">
->>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 
     <application
         android:allowBackup="true"
@@ -17,7 +13,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
         android:theme="@style/Theme.TeamProject"
         tools:targetApi="31">
         <activity
@@ -46,12 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-=======
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-        tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
->>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
