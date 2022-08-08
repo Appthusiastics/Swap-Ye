@@ -68,25 +68,27 @@ public class Welcome extends AppCompatActivity {
 
             });
 
-            listAds = findViewById(R.id.listAds);
+            listAds = findViewById(R.id.createAd);
             listAds.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     Intent i = new Intent(Welcome.this, CreateAd.class);
                     i.putExtra("linkEmail", passEmail.toString());
+                    i.putExtra("linkNickname", getNickname.getText().toString());
                     startActivity(i);
 
                 }
             });
-            createAd = findViewById(R.id.createAd);
+            createAd = findViewById(R.id.listAds);
             createAd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-
-                    Intent myInt = new Intent(getApplicationContext(), CreateAd.class);
-                    startActivity(myInt);
+                    Intent i = new Intent(Welcome.this, ListAds.class);
+                    i.putExtra("linkEmail", passEmail.toString());
+                    i.putExtra("linkNickname", getNickname.getText().toString());
+                    startActivity(i);
                 }
             });
 

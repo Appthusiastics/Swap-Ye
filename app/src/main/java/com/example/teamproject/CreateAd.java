@@ -22,11 +22,13 @@ import io.realm.mongodb.mongo.MongoDatabase;
 public class CreateAd extends AppCompatActivity {
 
     UserInfo usr = new UserInfo();
+
     String takeEmail;
 
     EditText title;
     EditText desc;
     Button save;
+    Button profile;
 
     MongoClient mongoClient;
     MongoDatabase mongoDatabase;
@@ -59,7 +61,8 @@ public class CreateAd extends AppCompatActivity {
                 if (extras != null) {
 
                     String passEmail = extras.getString("linkEmail");
-                    Document document = new Document().append("email", passEmail).append("title", title.getText().toString()).append("description", desc.getText().toString());
+                    String passNickname = extras.getString("linkNickname");
+                    Document document = new Document().append("email", passEmail).append("nickname", passNickname).append("title", title.getText().toString()).append("description", desc.getText().toString());
 
                     mongoCollection.insertOne(document).getAsync(result -> {
 
@@ -72,10 +75,23 @@ public class CreateAd extends AppCompatActivity {
                 }
 
 
+
+
             }
 
         });
 
+        profile = findViewById(R.id.goProfile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
+
+
     }
+
 
 }

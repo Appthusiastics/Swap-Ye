@@ -60,4 +60,17 @@
         android:textColor="#2e5d6e"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/goProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/addSave"
+        android:backgroundTint="#f1d54e"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Profile"
+        android:layout_margin="15dp"
+        android:textColor="#2e5d6e"
+        android:textStyle="bold" />
+
 </RelativeLayout>

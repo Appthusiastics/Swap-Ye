@@ -1,29 +1,30 @@
 package com.example.teamproject;
 
 import android.widget.ImageView;
+import io.realm.RealmObject;
 
 public class Ad {
 
-    String name;
+    String title;
     String desc;
-    ImageView imageView;
+    int image;
 
-    public Ad(){
-
-    }
-
-    public Ad(String name, String desc, ImageView imageView) {
-        this.name = name;
+    public Ad(String title, String desc, int image) {
+        this.title = title;
         this.desc = desc;
-        this.imageView = imageView;
+        this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public Ad() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDesc() {
@@ -34,11 +35,11 @@ public class Ad {
         this.desc = desc;
     }
 
-    public ImageView getImageView() {
-        return imageView;
+    public int getImage() {
+        return image;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setImage(int image) {
+        this.image = image;
     }
 }
