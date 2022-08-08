@@ -1,17 +1,37 @@
+<<<<<<< HEAD
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
+        google()
+
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.13'
-        classpath "io.realm:realm-gradle-plugin:10.11.0"
+        classpath "io.realm:realm-gradle-plugin:10.11.1"
+
+
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
 plugins {
     id 'com.android.application' version '7.2.1' apply false
     id 'com.android.library' version '7.2.1' apply false
+
+
+=======
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.2.1' apply false
+    id 'com.android.library' version '7.2.1' apply false
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c

@@ -1,15 +1,25 @@
 plugins {
     id 'com.android.application'
+<<<<<<< HEAD
     id 'com.google.gms.google-services'
 }
 
 apply plugin: "realm-android"
 
+
+=======
+}
+
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 android {
     compileSdk 32
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.example.teamproject"
+=======
+        applicationId "com.example.email_verification"
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -28,6 +38,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+<<<<<<< HEAD
 
     buildFeatures{
         viewBinding true;
@@ -36,15 +47,31 @@ android {
 
 realm {
     syncEnabled = true
+=======
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 }
 
 dependencies {
 
+<<<<<<< HEAD
+    implementation 'io.realm:realm-gradle-plugin:10.11.1'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.google.firebase:firebase-auth:21.0.6'
+    implementation 'com.google.firebase:firebase-database:20.0.5'
+    implementation 'com.google.firebase:firebase-firestore:24.2.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+=======
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+>>>>>>> 2e47f5a7d1b8a277e4a66ea6b900129a1fd3686c
 }

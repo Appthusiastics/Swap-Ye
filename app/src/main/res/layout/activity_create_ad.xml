@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAd"
+    android:background="#f7df6d">
+
+    <ImageView
+        android:id="@+id/addImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="139dp"
+        android:layout_marginEnd="120dp"
+        android:background="@drawable/second_hand" />
+
+    <EditText
+        android:id="@+id/addTitle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="15dp"
+        android:hint="Title"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/addDesc"
+        android:textSize="20dp"
+        android:hint="Description"
+        android:layout_below="@id/addTitle"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:textColor="#000"/>
+
+    <Button
+        android:id="@+id/addSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/addDesc"
+        android:backgroundTint="#f1d54e"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Save"
+        android:layout_margin="15dp"
+        android:textColor="#2e5d6e"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/goProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/addSave"
+        android:backgroundTint="#f1d54e"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Profile"
+        android:layout_margin="15dp"
+        android:textColor="#2e5d6e"
+        android:textStyle="bold" />
+
+</RelativeLayout>
